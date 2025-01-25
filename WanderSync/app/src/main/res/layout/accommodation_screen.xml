@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.AccommodationsActivity">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.sprintproject.viewmodel.MainViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Header -->
+        <TextView
+            android:id="@+id/accommodationsHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Accommodations"
+            android:textSize="32sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Horizontal Sorting Buttons -->
+        <LinearLayout
+            android:id="@+id/sort_buttons_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@id/accommodationsHeader">
+
+            <Button
+                android:id="@+id/sort_check_in_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check-In"
+                android:onClick="sortByCheckIn" />
+
+            <Button
+                android:id="@+id/sort_check_out_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Check-Out"
+                android:onClick="sortByCheckOut" />
+
+            <Button
+                android:id="@+id/sort_room_type_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Room Type"
+                android:onClick="sortByRoomType" />
+        </LinearLayout>
+
+        <!-- Scrollable List -->
+        <ListView
+            android:id="@+id/accommodations_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/sort_buttons_layout"
+            app:layout_constraintBottom_toTopOf="@id/myRectangleView"
+            android:layout_margin="8dp" />
+
+        <View
+            android:id="@+id/myRectangleView"
+            android:layout_width="450dp"
+            android:layout_height="53dp"
+            android:background="@drawable/rectangle"
+            tools:layout_editor_absoluteX="2dp"
+            tools:layout_editor_absoluteY="707dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/destinationButton"
+            android:layout_width="46dp"
+            android:layout_height="44dp"
+            app:srcCompat="@drawable/destination"
+            tools:layout_editor_absoluteX="94dp"
+            tools:layout_editor_absoluteY="718dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toTopOf="@+id/myRectangleView"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/logisticButton"
+            android:layout_marginStart="24dp"/>
+
+        <ImageButton
+            android:id="@+id/diningButton"
+            android:layout_width="46dp"
+            android:layout_height="44dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/dining"
+            tools:layout_editor_absoluteX="160dp"
+            tools:layout_editor_absoluteY="716dp"
+            app:layout_constraintTop_toTopOf="@+id/myRectangleView"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/destinationButton"
+            android:layout_marginStart="24dp"/>
+
+        <ImageButton
+            android:id="@+id/logisticButton"
+            android:layout_width="46dp"
+            android:layout_height="44dp"
+            app:srcCompat="@drawable/logistic"
+            tools:layout_editor_absoluteX="26dp"
+            tools:layout_editor_absoluteY="718dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toTopOf="@+id/myRectangleView"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@+id/myRectangleView"
+            android:layout_marginStart="25dp"/>
+
+        <ImageButton
+            android:id="@+id/accommodationsButton"
+            android:layout_width="46dp"
+            android:layout_height="44dp"
+            app:srcCompat="@drawable/accommodations"
+            tools:layout_editor_absoluteX="244dp"
+            tools:layout_editor_absoluteY="718dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toTopOf="@+id/myRectangleView"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/diningButton"
+            android:layout_marginStart="24dp"/>
+
+        <ImageButton
+            android:id="@+id/transportationButton"
+            android:layout_width="46dp"
+            android:layout_height="44dp"
+            app:srcCompat="@drawable/transportation"
+            tools:layout_editor_absoluteX="316dp"
+            tools:layout_editor_absoluteY="718dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toTopOf="@+id/myRectangleView"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/accommodationsButton"
+            android:layout_marginStart="24dp"/>
+
+        <ImageButton
+            android:id="@+id/communityButton"
+            android:layout_width="46dp"
+            android:layout_height="44dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/community"
+            tools:layout_editor_absoluteX="402dp"
+            tools:layout_editor_absoluteY="718dp"
+            app:layout_constraintTop_toTopOf="@+id/myRectangleView"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/transportationButton"
+            android:layout_marginStart="24dp"/>
+
+        <!-- Toggle Button to Show/Hide the Add Reservation Form -->
+        <Button
+            android:id="@+id/plus_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:textSize="60sp"
+            app:layout_constraintBottom_toTopOf="@+id/myRectangleView"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

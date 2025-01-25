@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.DiningActivity">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.sprintproject.viewmodel.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/myRectangleView"
+            android:layout_width="450dp"
+            android:layout_height="53dp"
+            android:background="@drawable/rectangle"
+            tools:layout_editor_absoluteX="2dp"
+            tools:layout_editor_absoluteY="707dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/destinationButton"
+            android:layout_width="46dp"
+            android:layout_height="44dp"
+            app:srcCompat="@drawable/destination"
+            tools:layout_editor_absoluteX="94dp"
+            tools:layout_editor_absoluteY="718dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toTopOf="@+id/myRectangleView"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/logisticButton"
+            android:layout_marginStart="24dp"/>
+
+        <ImageButton
+            android:id="@+id/diningButton"
+            android:layout_width="46dp"
+            android:layout_height="44dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/dining"
+            tools:layout_editor_absoluteX="160dp"
+            tools:layout_editor_absoluteY="716dp"
+            app:layout_constraintTop_toTopOf="@+id/myRectangleView"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/destinationButton"
+            android:layout_marginStart="24dp"/>
+
+        <ImageButton
+            android:id="@+id/logisticButton"
+            android:layout_width="46dp"
+            android:layout_height="44dp"
+            app:srcCompat="@drawable/logistic"
+            tools:layout_editor_absoluteX="26dp"
+            tools:layout_editor_absoluteY="718dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toTopOf="@+id/myRectangleView"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="@+id/myRectangleView"
+            android:layout_marginStart="25dp"/>
+
+        <ImageButton
+            android:id="@+id/accommodationsButton"
+            android:layout_width="46dp"
+            android:layout_height="44dp"
+            app:srcCompat="@drawable/accommodations"
+            tools:layout_editor_absoluteX="244dp"
+            tools:layout_editor_absoluteY="718dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toTopOf="@+id/myRectangleView"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/diningButton"
+            android:layout_marginStart="24dp"/>
+
+        <ImageButton
+            android:id="@+id/transportationButton"
+            android:layout_width="46dp"
+            android:layout_height="44dp"
+            app:srcCompat="@drawable/transportation"
+            tools:layout_editor_absoluteX="316dp"
+            tools:layout_editor_absoluteY="718dp"
+            android:scaleType="fitCenter"
+            app:layout_constraintTop_toTopOf="@+id/myRectangleView"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/accommodationsButton"
+            android:layout_marginStart="24dp"/>
+
+        <ImageButton
+            android:id="@+id/communityButton"
+            android:layout_width="46dp"
+            android:layout_height="44dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/community"
+            tools:layout_editor_absoluteX="402dp"
+            tools:layout_editor_absoluteY="718dp"
+            app:layout_constraintTop_toTopOf="@+id/myRectangleView"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toEndOf="@+id/transportationButton"
+            android:layout_marginStart="24dp"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:layout_marginBottom="53dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/diningReservationsHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dining Reservations"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:textSize="32sp"/>
+
+                <!-- Scrollable List to Display Reservations -->
+                <ListView
+                    android:id="@+id/reservationsListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="600dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintTop_toBottomOf="@id/diningReservationsHeader"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toBottomOf="@id/reservationsListView">
+                    <!-- Toggle Button to Show/Hide the Add Reservation Form -->
+
+                    <Button
+                        android:id="@+id/addReservationButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="64dp"
+                        android:text="Add Reservation"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <Button
+                        android:id="@+id/orderButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="64dp"
+                        android:text="Order"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+        <!-- Reservation Form (Hidden Initially) -->
+        <LinearLayout
+            android:id="@+id/addReservationLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:paddingTop="8dp"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <EditText
+                android:id="@+id/locationInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Location"/>
+
+            <EditText
+                android:id="@+id/websiteInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Website"/>
+
+            <EditText
+                android:id="@+id/timeInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Reservation Time (HH:mm)"/>
+
+            <Button
+                android:id="@+id/submitReservationButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit Reservation"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

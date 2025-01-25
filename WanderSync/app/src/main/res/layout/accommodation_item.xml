@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- layout for each Accommodation item -->
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+<data>
+    <variable
+        name="a"
+        type="com.example.sprintproject.model.IAccommodationModel" />
+</data>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/location_num_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Location 1" />
+
+    <!-- location -->
+    <TextView
+        android:id="@+id/location_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:text="@{a.location}" />
+
+    <!-- check in and out date -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            android:text="Check-in: " />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:text="@{com.example.sprintproject.utils.DateUtils.formatShort(a.checkInDate)}"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            android:text="Check-out: " />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:text="@{com.example.sprintproject.utils.DateUtils.formatShort(a.checkOutDate)}"
+            />
+
+    </LinearLayout>
+
+    <!-- number of rooms -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold|italic"
+            android:text="Number of Rooms: " />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:text="@{String.valueOf(a.numRooms)}" />
+
+    </LinearLayout>
+
+    <!-- room type -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold|italic"
+        android:background="#FFEEA8"
+        android:text="@{a.roomType}" />
+
+    <Button
+        android:id="@+id/expired_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Not Expired"
+        android:layout_marginTop="4dp"/>
+
+</LinearLayout>
+</layout>
